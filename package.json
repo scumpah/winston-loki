@@ -1,6 +1,6 @@
 {
   "name": "sc-winston-loki-beta",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A Modified version of Winston transport for Grafana Loki",
   "keywords": [
     "winston",
@@ -42,11 +42,11 @@
       "./src/proto/index.js"
     ]
   },
-  "author": "Jani Anttonen",
+  "author": "Raghavendra Sai",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JaniAnttonen/winston-loki.git"
+    "url": "https://github.com/scumpah/winston-loki.git"
   },
   "dependencies": {
     "async-exit-hook": "2.0.1",

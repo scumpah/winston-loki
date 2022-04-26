@@ -52,10 +52,12 @@ class LokiTransport extends Transport {
     })
 
     // Deconstruct the log
-    const { label, labels, timestamp, level, message, ...rest } = info
+    const { label, labels, timestamp, message, level, ...rest } = info
 
     // build custom labels if provided
-    let lokiLabels = { level: level }
+    const event = message ? message.split(" ")[0].toLowerCase() : "generic";
+    let lokiLabels = { level, event }
+
     lokiLabels = Object.assign(lokiLabels, labels)
 
     if (this.labels) {
@@ -65,7 +67,8 @@ class LokiTransport extends Transport {
     }
 
     // follow the format provided
-    const line = this.useCustomFormat ? info[MESSAGE] : `${message} ${
+    // message property will come inside rest object, no need to add it separately
+    const line = this.useCustomFormat ? info[MESSAGE] : `${
       rest && Object.keys(rest).length > 0 ? JSON.stringify(rest) : ''
     }`
 
