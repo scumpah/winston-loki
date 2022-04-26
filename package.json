@@ -1,6 +1,6 @@
 {
   "name": "sc-winston-loki-beta",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A Modified version of Winston transport for Grafana Loki",
   "keywords": [
     "winston",
