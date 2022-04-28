@@ -52,10 +52,12 @@ class LokiTransport extends Transport {
     })
 
     // Deconstruct the log
-    const { label, labels, timestamp, message, level, ...rest } = info
+    const { label, labels, timestamp, level, ...rest } = info
 
     // build custom labels if provided
-    const event = message ? message.split(" ")[0].toLowerCase() : "generic";
+    let event = rest.message;
+    event = event ? event.split(" ")[0].toLowerCase() : "generic";
+
     let lokiLabels = { level, event }
 
     lokiLabels = Object.assign(lokiLabels, labels)
